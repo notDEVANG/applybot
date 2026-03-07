@@ -1,0 +1,40 @@
+2026-03-07 15:55:34,224 [INFO] Reading PDF: ressss.pdf
+2026-03-07 15:55:34,230 [INFO] Total pages: 2
+2026-03-07 15:55:34,380 [INFO]   Page 1: extracted 2799 characters
+2026-03-07 15:55:34,386 [INFO]   Page 2: extracted 84 characters
+2026-03-07 15:55:34,386 [INFO] Total text extracted: 2885 characters
+2026-03-07 15:55:34,387 [ERROR] Missing OpenAI API key!
+2026-03-07 15:55:34,387 [ERROR] 1. Copy .env.example to .env
+2026-03-07 15:55:34,388 [ERROR] 2. Add your key from https://platform.openai.com/api-keys
+2026-03-07 16:03:36,232 [INFO] Reading PDF: ressss.pdf
+2026-03-07 16:03:36,238 [INFO] Total pages: 2
+2026-03-07 16:03:36,370 [INFO]   Page 1: extracted 2799 characters
+2026-03-07 16:03:36,374 [INFO]   Page 2: extracted 84 characters
+2026-03-07 16:03:36,375 [INFO] Total text extracted: 2885 characters
+2026-03-07 16:03:36,375 [ERROR] Missing OpenAI API key!
+2026-03-07 16:03:36,375 [ERROR] 1. Copy .env.example to .env
+2026-03-07 16:03:36,375 [ERROR] 2. Add your key from https://platform.openai.com/api-keys
+2026-03-07 16:04:48,067 [INFO] Reading PDF: ressss.pdf
+2026-03-07 16:04:48,071 [INFO] Total pages: 2
+2026-03-07 16:04:48,189 [INFO]   Page 1: extracted 2799 characters
+2026-03-07 16:04:48,194 [INFO]   Page 2: extracted 84 characters
+2026-03-07 16:04:48,195 [INFO] Total text extracted: 2885 characters
+2026-03-07 16:04:48,196 [ERROR] Missing OpenAI API key!
+2026-03-07 16:04:48,196 [ERROR] 1. Copy .env.example to .env
+2026-03-07 16:04:48,197 [ERROR] 2. Add your key from https://platform.openai.com/api-keys
+2026-03-07 16:07:09,598 [INFO] Reading PDF: ressss.pdf
+2026-03-07 16:07:09,602 [INFO] Total pages: 2
+2026-03-07 16:07:09,775 [INFO]   Page 1: extracted 2799 characters
+2026-03-07 16:07:09,781 [INFO]   Page 2: extracted 84 characters
+2026-03-07 16:07:09,782 [INFO] Total text extracted: 2885 characters
+2026-03-07 16:07:09,782 [ERROR] Missing OpenAI API key!
+2026-03-07 16:07:09,783 [ERROR] 1. Copy .env.example to .env
+2026-03-07 16:07:09,783 [ERROR] 2. Add your key from https://platform.openai.com/api-keys
+2026-03-07 16:07:24,265 [INFO] Reading PDF: ressss.pdf
+2026-03-07 16:07:24,272 [INFO] Total pages: 2
+2026-03-07 16:07:24,442 [INFO]   Page 1: extracted 2799 characters
+2026-03-07 16:07:24,448 [INFO]   Page 2: extracted 84 characters
+2026-03-07 16:07:24,449 [INFO] Total text extracted: 2885 characters
+2026-03-07 16:07:24,449 [ERROR] Missing OpenAI API key!
+2026-03-07 16:07:24,450 [ERROR] 1. Copy .env.example to .env
+2026-03-07 16:07:24,450 [ERROR] 2. Add your key from https://platform.openai.com/api-keys
