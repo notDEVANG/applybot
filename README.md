@@ -1,6 +1,6 @@
 # 📄 Resume Parser — Phase 1 of ApplyBot India
 
-A Python tool that reads a PDF resume and extracts structured data using Google Gemini AI. This is Phase 1 of the ApplyBot India project — an AI-powered job application agent for Indian freshers.
+A Python tool that reads a PDF resume and extracts structured data using Google Groq AI. This is Phase 1 of the ApplyBot India project — an AI-powered job application agent for Indian freshers.
 
 ---
 
@@ -8,7 +8,7 @@ A Python tool that reads a PDF resume and extracts structured data using Google 
 
 - Accepts any PDF resume as input
 - Extracts raw text using `pdfplumber`
-- Sends the text to Google Gemini AI for intelligent parsing
+- Sends the text to Google Groq AI for intelligent parsing
 - Returns a clean, structured JSON with name, skills, experience, projects, education, and more
 - Saves the output as a `.json` file automatically
 
@@ -54,9 +54,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Get your free Gemini API key
+### 4. Get your free GROQ API key
 
-- Go to [aistudio.google.com](https://aistudio.google.com)
+- Go to [console.groq.com](https://console.groq.com)
 - Sign in with your Google account
 - Click **"Get API Key"** → **Create API Key**
 - Copy the key
@@ -65,17 +65,17 @@ pip install -r requirements.txt
 
 **Windows (Command Prompt):**
 ```bash
-set GEMINI_API_KEY=your_api_key_here
+set GROQ_API_KEY=your_api_key_here
 ```
 
 **Windows (PowerShell):**
 ```bash
-$env:GEMINI_API_KEY="your_api_key_here"
+$env:GROQ_API_KEY="your_api_key_here"
 ```
 
 **Mac/Linux:**
 ```bash
-export GEMINI_API_KEY=your_api_key_here
+export GROQ_API_KEY=your_api_key_here
 ```
 
 > ⚠️ Never hardcode your API key directly in the code. Always use environment variables.
@@ -145,7 +145,7 @@ The parsed JSON is also saved automatically as `your_resume_parsed.json` in the 
 **"Could not extract text from PDF"**
 → Your PDF might be a scanned image. Use a PDF that was digitally created (like one exported from Word or Google Docs).
 
-**"GEMINI_API_KEY not found"**
+**"GROQ_API_KEY not found"**
 → Make sure you set the environment variable in the same terminal session where you're running the script.
 
 **"ModuleNotFoundError"**

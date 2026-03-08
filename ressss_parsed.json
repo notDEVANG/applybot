@@ -1,0 +1,77 @@
+{
+  "name": "Devang Pujare",
+  "email": "devangpujare@gmail.com",
+  "phone": "7083414211",
+  "skills": [
+    "Python",
+    "JavaScript",
+    "HTML",
+    "CSS",
+    "React.js",
+    "Django",
+    "scikit-learn",
+    "pandas",
+    "matplotlib",
+    "requests",
+    "argparse"
+  ],
+  "languages": [
+    "Python",
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+  "frameworks": [
+    "React.js",
+    "Django"
+  ],
+  "tools": [
+    "Git",
+    "GitHub",
+    "VS Code"
+  ],
+  "experience": [
+    {
+      "role": "Web Development Intern",
+      "company": "S.S. Infotech",
+      "duration": "2024",
+      "responsibilities": [
+        "Built and optimized frontend components using HTML, CSS, and JavaScript",
+        "Integrated data-fetching workflows with backend REST APIs",
+        "Improved UI/UX structure and user engagement through responsive design enhancements",
+        "Collaborated with team using Git"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Engineering \u2014 Computer Science",
+      "institution": "Rajendra Mane College of Engineering & Technology, Ratnagiri, Maharashtra",
+      "year": "2021 \u2013 2025",
+      "score": "CGPA: 8.1+"
+    }
+  ],
+  "projects": [
+    {
+      "name": "API Automation CLI",
+      "tech_stack": [
+        "Python",
+        "REST APIs",
+        "argparse",
+        "logging"
+      ],
+      "description": "Engineered a Python CLI tool that fetches REST API data, parses JSON responses, and stores structured output"
+    },
+    {
+      "name": "NYC Weather Trend Analyzer",
+      "tech_stack": [
+        "Python",
+        "scikit-learn",
+        "pandas",
+        "CLI"
+      ],
+      "description": "Built an ML-powered weather trend tool with an end-to-end pipeline"
+    }
+  ],
+  "summary": "Computer Engineering graduate with hands-on experience in Python backend development, REST API integration, and CLI automation"
+}

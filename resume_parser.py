@@ -1,5 +1,5 @@
 import pdfplumber
-import google.generativeai as genai
+from groq import Groq
 import json
 import re
 import os
@@ -18,18 +18,16 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-# Configure Gemini
-api_key = os.environ.get("GEMINI_API_KEY")
+# Configure Groq
+api_key = os.environ.get("GROQ_API_KEY")
 if not api_key:
-    log.error("Missing GEMINI_API_KEY!")
+    log.error("Missing GROQ_API_KEY!")
     log.error("1. Create a .env file in this folder")
-    log.error("2. Add this line: GEMINI_API_KEY=your_key_here")
-    log.error("3. Get a free key at https://aistudio.google.com")
+    log.error("2. Add this line: GROQ_API_KEY=your_key_here")
+    log.error("3. Get a free key at https://console.groq.com")
     sys.exit(1)
 
-genai.configure(api_key=api_key)
-model = genai.GenerativeModel("gemini-1.5-flash-latest")
-
+client = Groq(api_key=api_key)
 
 def extract_text_from_pdf(pdf_path):
     """Extract raw text from a PDF file."""
@@ -47,9 +45,9 @@ def extract_text_from_pdf(pdf_path):
     return text.strip()
 
 
-def parse_resume_with_gemini(resume_text):
-    """Send resume text to Gemini and get structured JSON back."""
-    log.info("Sending to Gemini for parsing...")
+def parse_resume_with_Groq(resume_text):
+    """Send resume text to Groq and get structured JSON back."""
+    log.info("Sending to Groq for parsing...")
 
     prompt = f"""
 You are a resume parser. Extract information from the resume below and return ONLY a valid JSON object.
@@ -94,10 +92,13 @@ Resume:
 {resume_text}
 """
 
-    response = model.generate_content(prompt)
-    raw = response.text.strip()
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    raw = response.choices[0].message.content.strip()
 
-    # Clean up in case Gemini adds markdown backticks
+    # Clean up in case Groq adds markdown backticks
     raw = re.sub(r"^```json", "", raw).strip()
     raw = re.sub(r"^```", "", raw).strip()
     raw = re.sub(r"```$", "", raw).strip()
@@ -118,14 +119,14 @@ def parse_resume(pdf_path):
         log.error("Could not extract text. Make sure the PDF is not a scanned image.")
         sys.exit(1)
 
-    # Step 2: Parse with Gemini
-    parsed_data = parse_resume_with_gemini(resume_text)
+    # Step 2: Parse with Groq
+    parsed_data = parse_resume_with_Groq(resume_text)
     log.info("Resume parsed successfully!")
     return parsed_data
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Parse a PDF resume using Gemini AI")
+    parser = argparse.ArgumentParser(description="Parse a PDF resume using Groq AI")
     parser.add_argument("--resume", required=True, help="Path to the PDF resume")
     parser.add_argument("--output", help="Optional: path to save JSON output")
     args = parser.parse_args()
