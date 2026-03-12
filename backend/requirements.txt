@@ -7,3 +7,7 @@ python-dotenv
 playwright
 beautifulsoup4
 requests
+gunicorn
+whitenoise
+psycopg2-binary
+dj-database-url

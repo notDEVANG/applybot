@@ -1,7 +1,9 @@
 // api.js — all API calls in one place
-const BASE = "http://localhost:8000/api";
+// In development: talks to localhost:8000
+// In production: talks to your Railway backend URL
+const BASE = process.env.REACT_APP_API_URL || "http://localhost:8000/api";
 
-// ── Token helpers (localStorage) ────────────
+// ── Token helpers ────────────────────────────
 export const token = {
   get: () => localStorage.getItem("applybot_token"),
   set: (t) => localStorage.setItem("applybot_token", t),
