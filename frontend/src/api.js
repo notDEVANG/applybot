@@ -102,4 +102,23 @@ export const api = {
   async getPipelineStatus(runId) {
     return apiFetch(`/pipeline/status/${runId}/`);
   },
+
+  // ── Payments ────────────────────────────
+  async createOrder(plan) {
+    return apiFetch("/payment/create-order/", {
+      method: "POST",
+      body: JSON.stringify({ plan }),
+    });
+  },
+
+  async verifyPayment(data) {
+    return apiFetch("/payment/verify/", {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+  },
+
+  async getSubscription() {
+    return apiFetch("/payment/subscription/");
+  },
 };

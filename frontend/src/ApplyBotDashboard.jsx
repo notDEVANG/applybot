@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { api } from "./api";
+import SettingsPage from "./SettingsPage";
 
 // ─── HOOKS ──────────────────────────────────────────────
 function useCountUp(target, duration = 1200) {
@@ -638,46 +639,7 @@ export default function ApplyBotDashboard({ user, onLogout }) {
 
           {/* SETTINGS PAGE */}
           {page === "Settings" && (
-            <div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 28 }}>
-                {[
-                  { name: "Free", price: "₹0", color: "#64748B", features: ["5 matches/day", "Manual apply"] },
-                  { name: "Starter", price: "₹299/mo", color: "#6366F1", features: ["25 auto-applies/day", "AI cover letters", "Daily digest"], popular: true },
-                  { name: "Pro", price: "₹599/mo", color: "#F59E0B", features: ["Unlimited applies", "All platforms", "Interview prep"] },
-                ].map(t => (
-                  <div key={t.name} style={{
-                    background: dark ? "#1E293B" : "white",
-                    border: `2px solid ${t.popular ? t.color : border}`,
-                    borderRadius: 18, padding: 24, position: "relative",
-                    boxShadow: t.popular ? `0 4px 20px ${t.color}30` : "none",
-                  }}>
-                    {t.popular && (
-                      <div style={{
-                        position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)",
-                        background: t.color, color: "white", fontSize: 10,
-                        fontWeight: 800, padding: "4px 14px", borderRadius: 20, whiteSpace: "nowrap",
-                      }}>⚡ MOST POPULAR</div>
-                    )}
-                    <div style={{ fontWeight: 800, fontSize: 18, color: t.color }}>{t.name}</div>
-                    <div style={{ fontSize: 28, fontWeight: 900, color: text, margin: "4px 0 16px" }}>{t.price}</div>
-                    {t.features.map(f => (
-                      <div key={f} style={{ fontSize: 13, color: sub, marginBottom: 8 }}>
-                        <span style={{ color: t.color }}>✓ </span>{f}
-                      </div>
-                    ))}
-                    <button style={{
-                      width: "100%", marginTop: 16, padding: "11px 0", borderRadius: 10,
-                      background: t.popular ? t.color : "transparent",
-                      color: t.popular ? "white" : t.color,
-                      border: `1px solid ${t.color}`,
-                      cursor: "pointer", fontWeight: 700, fontFamily: "inherit",
-                    }}>
-                      {t.name === "Free" ? "Current Plan" : "Pay with Razorpay"}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <SettingsPage dark={dark} user={user} onPlanChange={(plan) => showToast(`Plan upgraded to ${plan}!`)} />
           )}
         </div>
       </div>

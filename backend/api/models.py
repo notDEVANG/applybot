@@ -83,3 +83,22 @@ class AuthToken(models.Model):
 
     def __str__(self):
         return f"Token for {self.user.email}"
+
+
+class Subscription(models.Model):
+    PLAN_CHOICES = [
+        ("free",    "Free"),
+        ("starter", "Starter"),
+        ("pro",     "Pro"),
+    ]
+    user                = models.OneToOneField("auth.User", on_delete=models.CASCADE, related_name="subscription")
+    plan                = models.CharField(max_length=20, choices=PLAN_CHOICES, default="free")
+    daily_limit         = models.IntegerField(default=5)
+    is_active           = models.BooleanField(default=True)
+    razorpay_payment_id = models.CharField(max_length=100, blank=True)
+    razorpay_order_id   = models.CharField(max_length=100, blank=True)
+    created_at          = models.DateTimeField(auto_now_add=True)
+    updated_at          = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.user.email} — {self.plan}"
